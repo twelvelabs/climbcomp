@@ -1,0 +1,30 @@
+version: '3'
+volumes:
+  postgres-data:
+  app-bundle:
+services:
+  postgres:
+    image: postgres:10.4-alpine
+    environment:
+      POSTGRES_USER: 'climbcomp'
+      POSTGRES_PASSWORD: 'climbcomp'
+      POSTGRES_DB: 'climbcomp_development'
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  app:
+    build: .
+    command: 'rails s'
+    environment:
+      # Using just `climbcomp` for the db name so we can suffix the correct name in `database.yml`
+      DATABASE_URL: 'postgres://climbcomp:climbcomp@postgres:5432/climbcomp?encoding=utf8&pool=5&timeout=5000'
+    volumes:
+      - .:/app:cached
+      - app-bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    stdin_open: true
+    tty: true
