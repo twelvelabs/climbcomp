@@ -15,10 +15,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
   app:
     build: .
-    command: 'rails s'
     environment:
       # Using just `climbcomp` for the db name so we can suffix the correct name in `database.yml`
-      DATABASE_URL: 'postgres://climbcomp:climbcomp@postgres:5432/climbcomp?encoding=utf8&pool=5&timeout=5000'
+      DATABASE_URL: 'postgresql://climbcomp:climbcomp@postgres:5432/climbcomp?encoding=utf8&pool=5&timeout=5000'
     volumes:
       - .:/app:cached
       - app-bundle:/usr/local/bundle

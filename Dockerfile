@@ -17,3 +17,5 @@ COPY Gemfile* /app/
 RUN bundle install --jobs 4
 
 COPY . /app
+
+CMD ["/app/bin/server"]
