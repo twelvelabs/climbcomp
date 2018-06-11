@@ -15,9 +15,8 @@ services:
       - postgres-data:/var/lib/postgresql/data
   app:
     build: .
-    environment:
-      # Using just `climbcomp` for the db name so we can suffix the correct name in `database.yml`
-      DATABASE_URL: 'postgresql://climbcomp:climbcomp@postgres:5432/climbcomp?encoding=utf8&pool=5&timeout=5000'
+    env_file:
+      - '.env'
     volumes:
       - .:/app:cached
       - app-bundle:/usr/local/bundle
