@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'bootsnap',                 '>= 1.1.0', require: false
 gem 'oj',                       '~> 3.6.0'
+gem 'newrelic_rpm',             '~> 5.2.0'
 gem 'pg',                       '~> 1.0.0'
 gem 'puma',                     '~> 3.11'
 gem 'rails',                    '~> 5.2.0'
