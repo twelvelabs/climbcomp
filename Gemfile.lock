@@ -57,6 +57,8 @@ GEM
     factory_bot_rails (4.10.0)
       factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
+    faraday (0.15.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -91,6 +93,7 @@ GEM
     mocha (1.5.0)
       metaclass (~> 0.0.1)
     msgpack (1.2.4)
+    multipart-post (2.0.0)
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -143,6 +146,8 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
+    sentry-raven (2.7.3)
+      faraday (>= 0.7.6, < 1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -182,6 +187,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.0)
   rubocop
+  sentry-raven (~> 2.7.3)
   spring
   spring-watcher-listen (~> 2.0.0)
 
