@@ -8,6 +8,7 @@ gem 'oj',                       '~> 3.6.0'
 gem 'pg',                       '~> 1.0.0'
 gem 'puma',                     '~> 3.11'
 gem 'rails',                    '~> 5.2.0'
+gem 'sentry-raven',             '~> 2.7.3'
 
 group :development, :test do
   gem 'byebug',                 '~> 10.0.2', platforms: [:mri, :mingw, :x64_mingw]
