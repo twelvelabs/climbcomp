@@ -12,6 +12,7 @@ tktk
 ```bash
 git clone git@github.com:twelvelabs/climbcomp.git
 cd ./climbcomp
+cp .env.example .env
 
 docker-compose build
 docker-compose run --rm app rake db:setup
