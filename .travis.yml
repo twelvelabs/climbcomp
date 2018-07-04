@@ -11,3 +11,10 @@ before_script:
 script:
   - docker-compose build
   - docker-compose run app rake db:setup test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZVOa6KyIoh/OgYFz3zxUxk4QAG+zvSGUCyMfOyhCrNwsXd3hdBXSvl47Rc2WDmqz0vRj4wYU78YAayqAz6HwW2fmUtwjgQnFdBwOQd6ys5VTDRw6/Zm75QWJ1bNLu46rL11oxM+o9balsIiOyCbexgXox04iV93KRJJVIyeYGiD5xdCZfpC0YTafaCjlaR/bvkkrCkk1MYUGfWOk8oG7UcWvAmAbSmii7RNN47l7vQOxWwbWxZXuu3Mu/97o1ts5yU29g4HrO+35IU0aVAOwo/1dJFfz1D07qMW8WAHoM4g9ML1FpB8WjJGQXYmM0OJt4z5h4A7MmmYv+Q7zgtOFSvrtWL4F9P3RgCj2eeOfrBWAvM0EYOdlY9T5o1xnHLWJD1GvckFv1X4xGiApqtNfZWV0X5Cj0tAgoA8Hycpblm9ffwYMfCFoBZXsUgY0gQweFjNOhVJp1mxIFR8p1sHy9rJPFzgZloobP6lPE455SSyuCtegXwYyCVDRLdR/74k8EGC65jACwjRAIJpDdEi69WdkUBILXFdJpZqoi0e2/NYkkQHvKPfVgF80yKfsIyay6+g9VrKGS/4FworQCBXPZwE6Sh9qH1d3qktxty8F+AM/ovFz2k+kjeZaXuigA2LwsG5me90cOdl1Bxa16x18IHWcxzwLntF9+2Ji2tHoEYw=
+  app:
+    master: climbcomp-stage
