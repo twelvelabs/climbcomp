@@ -10,4 +10,4 @@ before_script:
 
 script:
   - docker-compose build
-  - docker-compose run app rake test
+  - docker-compose run app rake db:setup test
