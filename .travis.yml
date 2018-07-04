@@ -1,0 +1,13 @@
+language: minimal
+
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - cp .env.example .env
+
+script:
+  - docker-compose build
+  - docker-compose run app rake test
