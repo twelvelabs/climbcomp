@@ -12,7 +12,7 @@ script:
   - docker-compose build
   - docker-compose run app rake db:setup test
 
-after_script:
+before_deploy:
   - sudo rm -f .env
   - sudo rm -Rf ./tmp/cache/*
 
