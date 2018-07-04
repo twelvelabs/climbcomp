@@ -12,6 +12,10 @@ script:
   - docker-compose build
   - docker-compose run app rake db:setup test
 
+after_script:
+  - sudo rm -f .env
+  - sudo rm -Rf ./tmp/cache/*
+
 deploy:
   provider: heroku
   api_key:
