@@ -1,6 +1,6 @@
 ## Overview
 
-tktk
+[![Build Status](https://travis-ci.com/twelvelabs/climbcomp.svg)](https://travis-ci.com/twelvelabs/climbcomp)
 
 ## Prerequisites
 
