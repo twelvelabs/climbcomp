@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   before_action :require_authentication
 
   def current_token
-    @current_token ||= JwtReader.new(request).token
+    @current_token ||= Oidc::JwtReader.new(request).token
   end
 
   private

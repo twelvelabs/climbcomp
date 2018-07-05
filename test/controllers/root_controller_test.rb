@@ -27,7 +27,7 @@ class RootControllerTest < ActionDispatch::IntegrationTest
   private
 
   def authorization_header(header = nil)
-    header ||= "Bearer #{JwtWriter.create_token(sub: 'someone')}"
+    header ||= "Bearer #{Oidc::JwtWriter.create_token(sub: 'someone')}"
     { 'Authorization': header }
   end
 
