@@ -1,10 +1,18 @@
 module Oidc
   class UserInfo
     include ActiveModel::Model
+    include ActiveModel::Attributes
     include ActiveModel::Serializers::JSON
 
     class Error < StandardError
     end
+
+    attribute :sub,             :string
+    attribute :name,            :string
+    attribute :nickname,        :string
+    attribute :picture,         :string
+    attribute :email,           :string
+    attribute :email_verified,  :boolean, default: false
 
     attr_accessor :sub, :name, :nickname, :picture, :email, :email_verified
 

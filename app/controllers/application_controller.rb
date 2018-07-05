@@ -6,6 +6,10 @@ class ApplicationController < ActionController::API
     @current_token ||= Oidc::JwtReader.new(request).token
   end
 
+  def current_user
+    @current_user ||= UserIdentity.find_or_create_from_token(current_token).user if current_token
+  end
+
   private
 
   def require_authentication
