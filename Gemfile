@@ -30,4 +30,5 @@ group :test do
   gem 'minitest-spec-rails'
   gem 'mocha'
   gem 'rubocop', require: false
+  gem 'webmock'
 end

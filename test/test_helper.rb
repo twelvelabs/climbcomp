@@ -3,6 +3,7 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'minitest/reporters'
 require 'mocha/minitest'
+require 'webmock/minitest'
 
 Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
 
