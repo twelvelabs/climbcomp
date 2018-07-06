@@ -18,17 +18,26 @@ module Oidc
     end
 
     test 'valid tokens can be parsed' do
-      token         = JwtWriter.create_token(foo: 'bar')
+      token         = JwtWriter.create_token(sub: '123')
       token_string  = token.to_s
       request       = stub(headers: { 'Authorization' => "Bearer #{token_string}" })
       reader        = JwtReader.new(request)
       assert_equal token_string,  reader.token_string
       assert_equal token,         reader.token
-      assert_equal 'bar',         reader.token[:foo]
+      assert_equal '123',         reader.token[:sub]
+    end
+
+    test 'token is nil if missing sub' do
+      token         = JwtWriter.create_token(foo: 'bar')
+      token_string  = token.to_s
+      request       = stub(headers: { 'Authorization' => "Bearer #{token_string}" })
+      reader        = JwtReader.new(request)
+      assert_equal token_string, reader.token_string
+      assert_nil reader.token
     end
 
     test 'token is nil if expired' do
-      token         = JwtWriter.create_token(foo: 'bar', exp: 1.day.ago)
+      token         = JwtWriter.create_token(sub: '123', exp: 1.day.ago)
       token_string  = token.to_s
       request       = stub(headers: { 'Authorization' => "Bearer #{token_string}" })
       reader        = JwtReader.new(request)

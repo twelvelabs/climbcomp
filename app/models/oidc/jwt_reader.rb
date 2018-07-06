@@ -12,8 +12,8 @@ module Oidc
     def token
       return nil unless token_string.present?
       token = JSON::JWT.decode(token_string, jwks)
-      # TODO: validate `iss`
-      # validate `exp`
+      # TODO: validate `iss` and `aud`
+      return nil unless token[:sub].present?
       return nil if token[:exp] && (Time.at(token[:exp]) < Time.now)
       token
     rescue JSON::JWT::InvalidFormat, JSON::JWT::VerificationFailed
