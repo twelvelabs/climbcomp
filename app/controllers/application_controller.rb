@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
   private
 
   def require_authentication
-    return render_unauthorized unless current_token
+    return render_unauthorized unless current_user
   end
 
   def render_unauthorized

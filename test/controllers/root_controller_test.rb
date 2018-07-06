@@ -9,26 +9,19 @@ class RootControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'unauthorized if invalid auth type' do
-    get root_url, headers: authorization_header('Basic aHR0cHdhdGNoOmY=')
+    get root_url, headers: { 'Authorization': 'Basic aHR0cHdhdGNoOmY=' }
     assert_response :unauthorized
   end
 
   test 'unauthorized if invalid token' do
-    get root_url, headers: authorization_header('Bearer this.is.not.a.token')
+    get root_url, headers: { 'Authorization': 'Bearer this.is.not.a.token' }
     assert_response :unauthorized
   end
 
   test 'index renders empty object' do
-    get root_url, headers: authorization_header
+    get root_url, headers: auth_headers
     assert_response :success
     assert_equal('{}', @response.body)
-  end
-
-  private
-
-  def authorization_header(header = nil)
-    header ||= "Bearer #{Oidc::JwtWriter.create_token(sub: 'someone')}"
-    { 'Authorization': header }
   end
 
 end
